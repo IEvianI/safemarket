@@ -9,7 +9,8 @@ const uploadRoutes = require('./routes/upload');
 
 const app = express();
 app.use(cors({
-    origin: 'https://safemarket.vercel.app',
+    origin: ['http://localhost:3000', 'https://safemarket.vercel.app'],
+  credentials: true
   }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
