@@ -11,6 +11,8 @@ RUN npm install --legacy-peer-deps
 # Copier le reste du code
 COPY . .
 
+RUN npx prisma generate
+
 # Port exposé (à adapter si ton back écoute sur un autre)
 EXPOSE 5000
 
