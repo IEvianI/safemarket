@@ -8,7 +8,9 @@ const uploadRoutes = require('./routes/upload');
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://safemarket.vercel.app',
+  }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/listings', listingRoutes);

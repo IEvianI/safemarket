@@ -21,6 +21,7 @@ export default function HomeClient() {
       try {
         const query = searchParams.toString();
         const res = await api.get(`/listings${query ? '?' + query : ''}`);
+        console.log('Résultat fetch:', res);
         setListings(res.data);
       } catch (err) {
         console.error(err);

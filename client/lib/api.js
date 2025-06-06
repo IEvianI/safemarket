@@ -6,6 +6,8 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+  console.log('Envoi avec token:', token);
+  console.log('URL complète:', config.baseURL + config.url);
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
