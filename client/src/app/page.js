@@ -3,6 +3,8 @@ import HomeClient from '../components/HomeClient';
 
 export default function Page() {
   return (
-    <div>Hello depuis Page.js</div>
+    <Suspense fallback={<p>Chargement...</p>}>
+      <HomeClient />
+    </Suspense>
   );
 }
