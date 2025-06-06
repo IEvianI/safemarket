@@ -17,6 +17,14 @@ export default function HomeClient() {
   const router = useRouter();
 
   useEffect(() => {
+    console.log('➡️ Calling API at', process.env.NEXT_PUBLIC_API_URL);
+    api.get('/listings')
+      .then(res => console.log('✅ Listings:', res.data))
+      .catch(err => console.error('❌ Error:', err));
+  }, []);
+  
+
+  useEffect(() => {
     const fetchListings = async () => {
       try {
         const query = searchParams.toString();
@@ -39,7 +47,7 @@ export default function HomeClient() {
     router.push(`/?${params.toString()}`);
   };
 
-  console.log('API_URL:', process.env.NEXT_PUBLIC_API_URL);
+  console.log('baseURL:', process.env.NEXT_PUBLIC_API_URL);
 
   return (
     <>
