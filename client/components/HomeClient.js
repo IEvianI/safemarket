@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import api from '@/lib/api';
+import api from 'lib/api';
 
 
 console.log("API URL dans HomeClient:", process.env.NEXT_PUBLIC_API_URL);
