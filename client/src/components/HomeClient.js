@@ -38,6 +38,8 @@ export default function HomeClient() {
     router.push(`/?${params.toString()}`);
   };
 
+  console.log('API_URL:', process.env.NEXT_PUBLIC_API_URL);
+
   return (
     <>
       <div>
