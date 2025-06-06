@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import api from '@/lib/api';
 
+
+console.log("API URL dans HomeClient:", process.env.NEXT_PUBLIC_API_URL);
+
 export default function HomeClient() {
   const [listings, setListings] = useState([]);
   const [filters, setFilters] = useState({
