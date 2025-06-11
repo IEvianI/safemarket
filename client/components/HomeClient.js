@@ -4,7 +4,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import api from '@/lib/api';
 
 
-console.log("API URL dans HomeClient:", process.env.NEXT_PUBLIC_API_URL);
+
+
+
 
 export default function HomeClient() {
   const [listings, setListings] = useState([]);
@@ -20,11 +22,13 @@ export default function HomeClient() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log('➡️ Calling API at', process.env.NEXT_PUBLIC_API_URL);
-    api.get('/listings')
-      .then(res => console.log('✅ Listings:', res.data))
-      .catch(err => console.error('❌ Error:', err));
-  }, []);
+  console.log("📡 Environnement Vercel:");
+  console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+}, []);
+
+if (!process.env.NEXT_PUBLIC_API_URL) {
+  console.warn('❌ API URL manquante ! Vérifie la variable NEXT_PUBLIC_API_URL sur Vercel.');
+}
   
 
   useEffect(() => {
